@@ -1,0 +1,9 @@
+#!/bin/sh
+
+value=`sxiv -rto $HOME/Pictures/walls/images`
+if [[ value ]]; then
+    feh --bg-scale $value 
+else
+     notify-send "No image selected"
+fi
+
