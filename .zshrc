@@ -47,7 +47,7 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-export BROWSER="firefox"
+# export BROWSER="firefox"
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
 alias ls='ls --color=auto'
