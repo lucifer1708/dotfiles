@@ -1,0 +1,41 @@
+!! Set the background, foreground and cursor colors as below:
+ft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba:	rgb
+Xft.lcdfilter:	lcddefault
+
+!st.font:        JuliaMono:style:regular:pixelsize=15 */
+st.font:           JetBrainsMono Nerd Font:style:medium:pixelsize=15
+st.termname: st-256color
+! window padding
+st.borderpx: 5
+
+!- 0.1 to 0.9 = transparency
+st.alpha: 0.9
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #0E0E0F
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+! COLORS FOR SXIV
+Sxiv.foreground:   #bbc2cf
+Sxiv.background:   #282c34
+Sxiv.font: Ubuntu:style=bold:size=11

@@ -1,0 +1,126 @@
+################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+#Thunar
+super + e
+    thunar
+
+#Rofi
+super + r
+    rofi -show drun
+
+super + y
+    clipmenu
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+
+#Browser
+super + w
+     firefox
+
+# telegram-desktop
+super + shift + t
+    telegram-desktop
+
+#archlinux-logout
+super + x
+    archlinux-logout
+
+#st
+super + shift + Return
+    st
+
+#Xkill
+super + Escape
+    xkill
+
+#Keyboard dependent
+#st
+super + KP_Enter
+	st
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#File-Manager
+super + F8
+	eww open eww --toggle
+
+#Keyboard dependent
+#File-Manager
+super + shift + KP_Enter
+	thunar
+
+#dmenu
+super + shift + d
+	dmenu_run -i -nb '#191919' -nf '#ffffff' -sb '#bd93f9' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#reload sxhkd:
+super + shift + ctrl + s
+	pkill -USR1 -x sxhkd
+
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+
+#Take Screenshot
+super + shift + u
+    maim -s  ~/Pictures/Screenshots/Arch-$(date +%y-%m-%a-%I:%M-%p).webp
+
+super + alt + u 
+    maim  ~/Pictures/Screenshots/Arch-$(date +%y-%m-%a-%I:%M-%p).webp
+
+super + alt + shift + u
+    maim  -i $(xdotool getactivewindow) ~/Pictures/Screenshots/Arch-23-02-Wed-09:29-PM.webp
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer -D pipewire set Master 5%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer -D pipewire set Master 5%-
+
+XF86TouchpadToggle
+    tpad-toggle 
+
+#Mute
+XF86AudioMute
+    amixer -D pipewire set Master 1+ toggle
+
+#Brightness up
+XF86MonBrightnessUp
+    brightnessctl set +10%
+#Brightness down
+XF86MonBrightnessDown
+    brightnessctl set 10%-
+
+#################################################################
+#################################################################
+##################   DESKTOP SPECIFIC    ########################
+#################################################################
+#################################################################
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/chadwm/scripts/picom-toggle.sh
