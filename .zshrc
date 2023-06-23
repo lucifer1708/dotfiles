@@ -12,7 +12,7 @@
 #                                     #
 # # # # # # # # # # # # # # # # # # # #
 #       Author: Sumit Dhiman          #
-#      Email: 20bce091@nith.ac.in     #
+#      Email: hello@sumitdhiman.in    #
 # # # # # # # # # # # # # # # # # # # # 
 
 
