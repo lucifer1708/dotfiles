@@ -3,7 +3,6 @@
 # # # # # # #
 
 
-
 # # # # # # # # # # # # # # # # # # # #
 #     __               _              #
 #    / /   __  _______(_) ______ ____ #
@@ -27,7 +26,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.zsh
 source /usr/share/doc/mcfly/mcfly.zsh
 
-
 eval "$(starship init zsh)"
 
 HISTFILE="$HOME/.zsh_history"
@@ -47,7 +45,6 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# export BROWSER="firefox"
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
 alias ls='ls --color=auto'
@@ -85,7 +82,7 @@ alias activate-env='source venv/bin/activate'
 alias create-env='python -m venv venv'
 
 #----------------------------- list -----------------------------------
-# alias lf='ls -p | grep -v /'
+alias lf='ls -p | grep -v /'
 alias lfa='ls -ap | grep -v /'
 alias ld='ls -p | grep /'
 alias lda='ls -Ap | grep /'
