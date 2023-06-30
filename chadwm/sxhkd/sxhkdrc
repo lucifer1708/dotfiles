@@ -22,7 +22,14 @@ super + y
 #################################################################
 
 
-#Browser
+#Bluetooth
+super + alt + b
+    $HOME/.config/dotfiles/rofi/confs/bin/bluetooth
+
+#network
+super + alt + n
+    $HOME/.config/dotfiles/rofi/confs/bin/network
+
 super + w
      prime-run firefox
 
