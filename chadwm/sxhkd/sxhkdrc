@@ -32,7 +32,7 @@ super + shift + t
 
 #archlinux-logout
 super + x
-    archlinux-logout
+    $HOME/.config/dotfiles/rofi/confs/bin/powermenu
 
 #st
 super + shift + Return
@@ -73,6 +73,8 @@ super + shift + ctrl + s
 # CONTROL + ALT KEYS
 #################################################################
 
+super + Print
+     $HOME/.config/dotfiles/rofi/confs/bin/screenshot
 
 #Take Screenshot
 super + shift + u
