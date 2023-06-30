@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Author: Srm-Akla
 # This script copies the theme files and config file and places them in proper folder
 
 _rofi="$HOME/.config/rofi"
