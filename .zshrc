@@ -12,7 +12,7 @@
 #                                     #
 # # # # # # # # # # # # # # # # # # # #
 #       Author: Sumit Dhiman          #
-#      Email: hello@sumitdhiman.in    #
+#      Email: hello@sumitdhiman.in     #
 # # # # # # # # # # # # # # # # # # # # 
 
 
@@ -317,7 +317,7 @@ function run {
     $@& disown
   fi
 }
-# remove
+#remove
 alias rmgitcache="rm -r ~/.cache/git"
 
 

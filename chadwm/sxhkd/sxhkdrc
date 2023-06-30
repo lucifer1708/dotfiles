@@ -8,11 +8,11 @@
 
 #Thunar
 super + e
-    thunar
+    prime-run thunar
 
 #Rofi
 super + r
-    rofi -show drun
+    rofi -show drun -theme $HOME/.config/rofi/config.rasi
 
 super + y
     clipmenu
@@ -24,11 +24,11 @@ super + y
 
 #Browser
 super + w
-     firefox
+     prime-run firefox
 
 # telegram-desktop
 super + shift + t
-    telegram-desktop
+    prime-run telegram-desktop
 
 #archlinux-logout
 super + x
@@ -36,7 +36,7 @@ super + x
 
 #st
 super + shift + Return
-    st
+    prime-run st
 
 #Xkill
 super + Escape
@@ -45,7 +45,7 @@ super + Escape
 #Keyboard dependent
 #st
 super + KP_Enter
-	st
+	prime-run st
 
 #################################################################
 # SUPER + SHIFT KEYS

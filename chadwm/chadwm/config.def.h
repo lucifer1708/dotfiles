@@ -4,12 +4,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int default_border = 0;   /* to switch back to default border after dynamic border resizing via keybinds */
+static const unsigned int default_border = 2;   /* to switch back to default border after dynamic border resizing via keybinds */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 1;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 1;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 1;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 1;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 3;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 3;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 0;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -18,11 +18,11 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int showtab            = showtab_auto;
 static const int toptab             = 1;        /* 0 means bottom tab */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int horizpadbar        = 5;
-static const int vertpadbar         = 11;
-static const int vertpadtab         = 35;
-static const int horizpadtabi       = 15;
+static const int topbar             = 0;        /* 0 means bottom bar */
+static const int horizpadbar        = 1;
+static const int vertpadbar         = 4;
+static const int vertpadtab         = 20;
+static const int horizpadtabi       = 10;
 static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
 static const int tag_preview        = 1;        /* 1 means enable, 0 is off */
