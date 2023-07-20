@@ -1,6 +1,6 @@
 #!/bin/sh
 
-value=`sxiv -rto $HOME/Pictures/walls/images`
+value=`ls -t -- $HOME/Pictures/walls/images/*| nsxiv -rto -`
 if [[ value ]]; then
     feh --bg-scale $value 
 else

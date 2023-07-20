@@ -21,11 +21,11 @@ export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcu
 export GOPATH=$HOME/go
 autoload -U compinit; compinit
 bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.zsh
-source /usr/share/doc/mcfly/mcfly.zsh
-
+bindkey "^[[1;5D" backward-word 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.zsh 
+source /usr/share/doc/mcfly/mcfly.zsh 
+ 
 eval "$(starship init zsh)"
 
 HISTFILE="$HOME/.zsh_history"
@@ -48,6 +48,8 @@ _fzf_compgen_dir() {
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
 alias ls='ls --color=auto'
+alias docx="cd ~/Docx"
+alias dols="cd ~/Downloads/"
 alias vi='nvim'
 alias vim='nvim'
 alias clr='clear'
@@ -60,6 +62,9 @@ alias gclone1='git clone --depth=1'
 alias run-server='npm run dev -- --open'
 alias compile-tex="latexmk -pvc -pdf"
 alias emacs="emacsclient -c -a 'emacs' & disown"
+alias ssh-stage="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-18-192-176-85.eu-central-1.compute.amazonaws.com"
+alias ssh-dev="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-3-70-192-214.eu-central-1.compute.amazonaws.com"
+alias ssh-prod="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-18-159-254-137.eu-central-1.compute.amazonaws.com"
 
 #------------------ GIT ALIASES -------------
 alias g='git'
@@ -82,7 +87,6 @@ alias activate-env='source venv/bin/activate'
 alias create-env='python -m venv venv'
 
 #----------------------------- list -----------------------------------
-alias lf='ls -p | grep -v /'
 alias lfa='ls -ap | grep -v /'
 alias ld='ls -p | grep /'
 alias lda='ls -Ap | grep /'
@@ -325,11 +329,6 @@ alias rmgitcache="rm -r ~/.cache/git"
 alias fetch='neofetch'
 export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH="$PATH:/opt/mssql-tools/bin"
-
-
-#compdef gh
-
-# zsh completion for gh                                   -*- shell-script -*-
 
 __gh_debug()
 {

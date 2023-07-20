@@ -31,7 +31,7 @@ super + alt + n
     $HOME/.config/dotfiles/rofi/confs/bin/network
 
 super + w
-     prime-run firefox
+     prime-run brave
 
 # telegram-desktop
 super + shift + t
