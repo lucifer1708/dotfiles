@@ -20,7 +20,6 @@ run "numlockx on"
 run clipmenud
 run volumeicon
 sxhkd -c ~/.config/chadwm/sxhkd/sxhkdrc &
-# feh --bg-scale --randomize /home/lucifer/Pictures/walls/images/
-feh --bg-scale ~/Pictures/walls/images/wallhaven-m391km_1920x1080.webp
+feh --bg-fill /home/lucifer/Pictures/walls/images/wallhaven-j3row5.webp
 ~/.config/chadwm/scripts/bar.sh &
 while type chadwm >/dev/null; do chadwm && continue || break; done
