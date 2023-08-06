@@ -9,7 +9,7 @@ function run {
   fi
 }
 
-run "xrandr --output DP-0 --off --output DP-1 --off --output eDP-1-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-1-0 --mode 1920x1080 --pos 1931x0 --rotate normal"
+run "xrandr --output DP-0 --primary --mode 1920x1080 --pos 1920x0 --scale 1.3x1.3 --rotate normal --output DP-1 --off --output eDP-1-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-1-0 --off"
 run nm-applet
 run blueman-applet
 run xfce4-power-manager
