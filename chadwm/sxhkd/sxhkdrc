@@ -106,7 +106,7 @@ XF86AudioLowerVolume
     amixer -D pipewire set Master 5%-
 
 XF86TouchpadToggle
-    tpad-toggle 
+    $HOME/.config/dotfiles/bin/toggle-touchpad
 
 #Mute
 XF86AudioMute
@@ -118,6 +118,7 @@ XF86MonBrightnessUp
 #Brightness down
 XF86MonBrightnessDown
     brightnessctl set 10%-
+
 
 #################################################################
 #################################################################
