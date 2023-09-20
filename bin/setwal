@@ -4,6 +4,7 @@ value=`ls -t -- $HOME/Pictures/walls/images/*| nsxiv -rto -`
 if [[ value ]]; then
     feh --bg-fill $value 
      sed -i "/^feh/ c\feh --bg-fill $value" $HOME/.config/dotfiles/chadwm/scripts/run.sh
+     sed -i "/^feh/ c\feh --bg-fill $value" $HOME/.config/dotfiles/leftwm/themes/current/up
 else
      notify-send "No image selected"
 fi

@@ -1,0 +1,243 @@
+modkey = "Mod4"
+mousekey = "Mod4"
+workspaces = []
+tags = ["term", "web", "code", "music", "media"]
+layouts = ["GridHorizontal", "CenterMainBalanced", "Monocle"]
+layout_mode = "Tag"
+insert_behavior = "Bottom"
+disable_current_tag_swap = false
+disable_tile_drag = false
+focus_behaviour = "Sloppy"
+focus_new_windows = true
+
+window_rules = [
+    {window_class = "gcr-prompter", spawn_floating = true },
+    {window_class = "brave", spawn_on_tag = 2 },
+    {window_title = "termusic", spawn_on_tag = 4 },
+    {window_class = "neovide", spawn_on_tag = 3 },
+]
+
+# Backlight
+[[keybind]]
+command = "Execute"
+value = "sudo brightnessctl set 10%-"
+modifier = ["modkey", "Control", "Shift"]
+key = "j"
+
+[[keybind]]
+command = "Execute"
+value = "sudo brightnessctl set +10%"
+modifier = ["modkey", "Control", "Shift"]
+key = "k"
+
+# PulseAudio Keybindings
+[[keybind]]
+command = "Execute"
+value = "pamixer -d 5"
+modifier = ["modkey", "Control"]
+key = "j"
+
+[[keybind]]
+command = "Execute"
+value = "pamixer -i 5"
+modifier = ["modkey", "Control"]
+key = "k"
+
+[[keybind]]
+command = "Execute"
+value = "pamixer -t"
+modifier = ["modkey", "Control"]
+key = "l"
+
+# Screenshotting
+[[keybind]]
+command = "Execute"
+value = "scrot Pictures/Screenshots/$(date +'%d.%m.%Y-%H:%M:%S').png -e 'xclip -t image/png -i $f'"
+modifier = ["modkey", "Shift"]
+key = "a"
+
+[[keybind]]
+command = "Execute"
+value = "scrot -s -f Pictures/Screenshots/$(date +'%d.%m.%Y-%H:%M:%S').png -e 'xclip -t image/png -i $f'"
+modifier = ["modkey", "Shift"]
+key = "s"
+
+# Application Keybindings
+[[keybind]]
+command = "Execute"
+value = "gpick -s -o | xclip -i"
+modifier = ["modkey"]
+key = "p"
+
+[[keybind]]
+command = "Execute"
+value = "st -e ranger"
+modifier = ["modkey"]
+key = "a"
+
+# [[keybind]]
+# command = "Execute"
+# value = ""
+# modifier = ["modkey"]
+# key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "st -e termusic"
+modifier = ["modkey"]
+key = "n"
+
+[[keybind]]
+command = "Execute"
+value = "neovide"
+modifier = ["modkey"]
+key = "e"
+
+[[keybind]]
+command = "Execute"
+value = "rofi -show drun -theme $HOME/.config/rofi/config.rasi"
+modifier = ["modkey"]
+key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "st"
+modifier = ["modkey"]
+key = "Return"
+
+[[keybind]]
+command = "Execute"
+value = "brave"
+modifier = ["modkey"]
+key = "w"
+
+# WM Keybindings
+[[keybind]]
+command = "CloseWindow"
+modifier = ["modkey"]
+key = "q"
+
+[[keybind]]
+command = "Execute"
+value = "slock"
+modifier = ["modkey"]
+key = "l"
+
+[[keybind]]
+command = "ToggleFullScreen"
+modifier = ["modkey"]
+key = "f"
+
+[[keybind]]
+command = "SoftReload"
+modifier = ["modkey", "Shift"]
+key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "pkill leftwm"
+modifier = ["modkey", "Shift"]
+key = "q"
+
+[[keybind]]
+command = "ToggleFloating"
+modifier = ["modkey"]
+key = "space"
+
+[[keybind]]
+command = "MoveWindowUp"
+modifier = ["modkey", "Shift"]
+key = "k"
+
+[[keybind]]
+command = "MoveWindowDown"
+modifier = ["modkey", "Shift"]
+key = "j"
+
+[[keybind]]
+command = "FocusWindowUp"
+modifier = ["modkey"]
+key = "k"
+
+[[keybind]]
+command = "FocusWindowDown"
+modifier = ["modkey"]
+key = "j"
+
+[[keybind]]
+command = "NextLayout"
+modifier = ["modkey"]
+key = "o"
+
+[[keybind]]
+command = "PreviousLayout"
+modifier = ["modkey"]
+key = "i"
+
+
+# Change Tags
+[[keybind]]
+command = "GotoTag"
+value = "1"
+modifier = ["modkey"]
+key = "1"
+
+[[keybind]]
+command = "GotoTag"
+value = "2"
+modifier = ["modkey"]
+key = "2"
+
+[[keybind]]
+command = "GotoTag"
+value = "3"
+modifier = ["modkey"]
+key = "3"
+
+[[keybind]]
+command = "GotoTag"
+value = "4"
+modifier = ["modkey"]
+key = "4"
+
+[[keybind]]
+command = "GotoTag"
+value = "5"
+modifier = ["modkey"]
+key = "5"
+
+[[keybind]]
+command = "MoveToTag"
+value = "1"
+modifier = ["modkey", "Shift"]
+key = "1"
+
+[[keybind]]
+command = "MoveToTag"
+value = "2"
+modifier = ["modkey", "Shift"]
+key = "2"
+
+[[keybind]]
+command = "MoveToTag"
+value = "3"
+modifier = ["modkey", "Shift"]
+key = "3"
+
+[[keybind]]
+command = "MoveToTag"
+value = "4"
+modifier = ["modkey", "Shift"]
+key = "4"
+
+[[keybind]]
+command = "MoveToTag"
+value = "5"
+modifier = ["modkey", "Shift"]
+key = "5"
+
+[[keybind]]
+command = "MoveToTag"
+value = "6"
+modifier = ["modkey", "Shift"]
+key = "6"

@@ -108,6 +108,9 @@ XF86AudioLowerVolume
 XF86TouchpadToggle
     $HOME/.config/dotfiles/bin/toggle-touchpad
 
+XF86ScreenSaver
+    slock
+
 #Mute
 XF86AudioMute
     amixer -D pipewire set Master 1+ toggle

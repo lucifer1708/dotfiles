@@ -10,7 +10,6 @@ interval=0
 
 
 cpu() {
-  # cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
   cpu_val=$(~/.local/bin/cpu-go)
   printf "^c$black^ ^b$green^ CPU "
   printf "^c$white^ ^b$grey^ $cpu_val "
