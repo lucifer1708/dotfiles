@@ -206,8 +206,7 @@ draw_bold_text_with_bright_colors: true
 #######################################
 schemes:
   ### Doom One ###
-  DoomOne:
-    &DoomOne
+  DoomOne: &DoomOne
     primary:
       background: '#282c34'
       foreground: '#bbc2cf'
@@ -237,8 +236,7 @@ schemes:
       white: '#dfdfdf'
 
   ### Dracula ###
-  Dracula:
-    &Dracula
+  Dracula: &Dracula
     primary:
       background: '#151517'
       foreground: '#f8f8f2'
@@ -573,10 +571,12 @@ schemes:
 #   primary:
 #     background: '#101012'
 #     foreground: '#EBEBEB'
+
 #   # Cursor colors
 #   cursor:
 #     text: '#000000'
 #     cursor: '#FF261E'
+
 #   # Normal colors
 #   normal:
 #     black: '#0d0d0d'
@@ -587,6 +587,7 @@ schemes:
 #     magenta: '#8763B8'
 #     cyan: '#21DEEF'
 #     white: '#EBEBEB'
+
 #   # Bright colors
 #   bright:
 #     black: '#6D7070'
@@ -597,34 +598,40 @@ schemes:
 #     magenta: '#A578EA'
 #     cyan: '#73FBF1'
 #     white: '#FEFEF8'
+
 # TokyoNight Alacritty Colors
 colors:
-  name: FarSide
-  author: Baskerville
+  # Default colors
   primary:
-    background: "#000000"
-    foreground: "#919191"
-  cursor:
-    text: "#000000"
-    cursor: "#919191"
+    background: '#101012'
+    foreground: '0xc0caf5'
+
+  # Normal colors
   normal:
-    black: "#303030"
-    red: "#a43261"
-    green: "#006ca5"
-    yellow: "#007086"
-    blue: "#6751a6"
-    magenta: "#913e88"
-    cyan: "#0061b1"
-    white: "#c6c6c6"
+    black:   '0x15161E'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xa9b1d6'
+
+  # Bright colors
   bright:
-    black: "#5e5e5e"
-    red: "#ff9fc9"
-    green: "#3bd6ff"
-    yellow: "#00ddf4"
-    blue: "#d5b8ff"
-    magenta: "#ffa7f6"
-    cyan: "#93c9ff"
-    white: "#ffffff"
+    black:   '0x414868'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+    
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -654,10 +661,12 @@ colors:
 #   animation: Ease
 #   duration: 0.5
 #   color: '#ffffff'
+
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # window:
+
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 # When set to `true`, selected text will be copied to the primary clipboard.
@@ -666,6 +675,7 @@ colors:
 #dynamic_title: true
 # cursor:
 #   style: underline
+
 cursor:
   style:
     shape: Block
@@ -689,6 +699,7 @@ shell: null
 program: /bin/zsh
 # args:
 #   - --login
+
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
@@ -889,29 +900,9 @@ key_bindings:
   - { key: Copy, mods: None, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }
   - { key: L, mods: Control, chars: "\f" }
-  - {
-      key: PageUp,
-      mods: None,
-      action: ScrollPageUp,
-      mode: ~Alt
-    }
-  - {
-      key: PageDown,
-      mods: None,
-      action: ScrollPageDown,
-      mode: ~Alt
-    }
-  - {
-      key: Home,
-      mods: Shift,
-      action: ScrollToTop,
-      mode: ~Alt
-    }
-  - {
-      key: End,
-      mods: Shift,
-      action: ScrollToBottom,
-      mode: ~Alt
-    }
+  - { key: PageUp, mods: None, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
 
-theme: Baskerville - FarSide
+theme: Nord
