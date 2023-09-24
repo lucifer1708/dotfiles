@@ -531,3 +531,7 @@ _gh()
 if [ "$funcstack[1]" = "_gh" ]; then
     _gh
 fi
+export RUST_BACKTRACE=1
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
