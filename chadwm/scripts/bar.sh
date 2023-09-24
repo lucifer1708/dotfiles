@@ -1,59 +1,66 @@
-#!/bin/dash
+#!/bin/env sh
 
-# ^c$var^ = fg color
-# ^b$var^ = bg color
+# INIT
+printf "$$" > ~/.cache/pidofbar
+sec=0
 
-interval=0
-
-# load colors
-. ~/.config/chadwm/scripts/bar_themes/dracula
-
-
-cpu() {
-  cpu_val=$(~/.local/bin/cpu-go)
-  printf "^c$black^ ^b$green^ CPU "
-  printf "^c$white^ ^b$grey^ $cpu_val "
+update_memory () { 
+	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
 }
 
-temp() {
-  temp_value=$(sensors | awk '/^edge/ {print $2 }' | tr -d +)
-  printf "^c$black^ ^b$green^ TEMP"
-  printf "^c$white^ ^b$grey^ $temp_value"
+update_time () { 
+	time="$(date "+[  %a %d %b ] [  %I:%M %P ]")" 
 }
 
-battery() {
-  get_capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
-  printf "^c$blue^   $get_capacity"
+temp_value=$(sensors | awk '/^edge/ {print $2 }' | tr -d +)
+
+capcity(){
+get_capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
+echo $get_capacity
 }
 
-brightness() {
-  printf "^c$red^   "
-  printf "^c$red^%.0f\n" $(brightnessctl -m | cut -d, -f4 | tr -d %)
-}
-
-mem() {
-  printf "^c$blue^^b$black^  "
-  printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)"
-}
-
-wlan() {
-# run "conky -c $HOME/.config/chadwm/conky/system-overview"
-	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c$black^ ^b$blue^ 󰤨  ^d^%s" " ^c$blue^Connected" ;;
-	down) printf "^c$black^ ^b$blue^ 󰤭  ^d^%s" " ^c$blue^Disconnected" ;;
-	esac
-}
-
-clock() {
-	printf "^c$black^ ^b$darkblue^  "
-	printf "^c$black^^b$blue^ $(date '+%d/%m/%y %r')  "
+update_bat () { 
+	# you might need to change the path depending on your device
+	read -r bat_status </sys/class/power_supply/BAT0/status
+	read -r bat_capacity </sys/class/power_supply/BAT0/capacity
+	if [ "$bat_status" = "Charging" ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 80 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 60 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 40 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 20 ]; then
+		bat_status=""
+	else 
+		bat_status=""
+	fi
+	bat="$bat_status $bat_capacity%"
 }
 
 
-while true; do
+display () { 
+	xsetroot -name "[ 󰔐 $temp_value] [ 󰂄 $(capcity)%] [ 󰻠 $cpu_val] [  $memory ] $time"
+}
 
-  [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
-  interval=$((interval + 1))
+# Handling receiving signal
+# RTMIN = 34 (always)
+trap	"update_vol;display"	"RTMIN"
 
-  sleep 2 && xsetroot -name " $(battery) $(brightness) $(cpu) $(temp) $(mem) $(wlan) $(clock)"
-done
+## kill -m "$(cat ~/.cache/pidofbar)"
+# where m = 34 + n
+
+while true
+do
+	sleep 1 &
+  wait && { 
+		# to update item ever n seconds with a offset of m
+		## [ $((sec % n)) -eq m ] && udpate_item
+		[ $((sec % 5 )) -eq 0 ] && update_time
+		[ $((sec % 15)) -eq 0 ] && update_memory
+
+		[ $((sec % 5 )) -eq 0 ] && display
+		sec=$((sec + 1))
+	}
+done 

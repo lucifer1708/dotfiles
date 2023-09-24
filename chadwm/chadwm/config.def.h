@@ -54,43 +54,36 @@ static const char *fonts[] = {"Iosevka:style:medium:size=10",
 
 static const char *colors[][3] = {
     /*                     fg       bg      border */
-    [SchemeNorm] = {gray3, black, gray2},
-    [SchemeSel] = {gray4, blue, blue},
-    [SchemeTitle] = {white, black, black}, // active window title
+    [SchemeNorm] = {white, black, gray2},
+    [SchemeSel] = {white, blue, blue},
+    [SchemeTitle] = {gray3, black, black}, // active window title
     [TabSel] = {blue, gray2, black},
     [TabNorm] = {gray3, black, black},
     [SchemeTag] = {gray3, black, black},
-    [SchemeTag1] = {blue, black, black},
-    [SchemeTag2] = {red, black, black},
-    [SchemeTag3] = {orange, black, black},
-    [SchemeTag4] = {green, black, black},
-    [SchemeTag5] = {blue, black, black},
-    [SchemeTag6] = {pinky, black, black},
-    [SchemeTag7] = {pink, black, black},
-    [SchemeTag8] = {orange, black, black},
-    [SchemeTag9] = {red, black, black},
-    [SchemeLayout] = {green, black, black},
-    [SchemeBtnPrev] = {green, black, black},
-    [SchemeBtnNext] = {yellow, black, black},
+    [SchemeTag1] = {white, black, black},
+    [SchemeTag2] = {white, black, black},
+    [SchemeTag3] = {white, black, black},
+    [SchemeTag4] = {white, black, black},
+    [SchemeTag5] = {white, black, black},
+    [SchemeTag6] = {white, black, black},
+    [SchemeTag7] = {white, black, black},
+    [SchemeTag8] = {white, black, black},
+    [SchemeTag9] = {white, black, black},
+    [SchemeLayout] = {white, black, black},
+    [SchemeBtnPrev] = {yellow, black, black},
+    [SchemeBtnNext] = {green, black, black},
     [SchemeBtnClose] = {red, black, black},
 };
 
 /* tagging */
-// static char *tags[] = {"", "", "", "", "", "", "",
+static char *tags[] = {"  ", "  ", "  ", "  ", "  ", "  ", "  ","  ", "  "};
 // "", ""}; static char *tags[] = { "1", "2", "3", "4", "5", "6", "7",
 // "8", "9" };
-static char *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+/* static char *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII",
+ * "IX"}; */
 // static char *tags[] = { "", "", "", "", "", "", "",
 // "", "" }; static char *tags[] = { "Web", "Chat", "Edit", "Meld", "Vb",
 // "Mail", "Video", "Image", "Files" }; static char *tags[] = {"一", "二", "三",
-// "四", "五", "六", "七", "八", "九"};
-
-static const char *eww[] = {"eww", "open", "eww", NULL};
-
-static const Launcher launchers[] = {
-    /* command     name to display */
-    {eww, "[襤]"},
-};
 
 static const int tagschemes[] = {SchemeTag1, SchemeTag2, SchemeTag3,
                                  SchemeTag4, SchemeTag5, SchemeTag6,
@@ -106,10 +99,6 @@ static const int ulineall =
     0; /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
-    /* xprop(1):
-     *	WM_CLASS(STRING) = instance, class
-     *	WM_NAME(STRING) = title
-     */
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
     {"Gimp", NULL, NULL, 0, 0, 0, -1},
@@ -122,7 +111,7 @@ static const Rule rules[] = {
 static const float mfact = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;    /* number of clients in master area */
 static const int resizehints =
-    0; /* 1 means respect size hints in tiled resizals */
+    1; /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen =
     1; /* 1 will force focus on the fullscreen window */
 
@@ -175,7 +164,7 @@ static Key keys[] = {
      SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
     //{ MODKEY,                           XK_c,       spawn, SHCMD("rofi -show
-    //drun") },
+    // drun") },
     {MODKEY, XK_Return, spawn, SHCMD("st")},
 
     // toggle stuff
@@ -249,7 +238,7 @@ static Key keys[] = {
 
     // kill dwm
     //{ MODKEY|ControlMask,               XK_q,       spawn, SHCMD("killall
-    //bar.sh dwm") },
+    // bar.sh dwm") },
 
     // kill window
     {MODKEY, XK_q, killclient, {0}},
@@ -267,17 +256,6 @@ static Key keys[] = {
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8)
-
-    // azerty keyboard (Belgium)
-    // TAGKEYS(                               XK_ampersand,                0)
-    // TAGKEYS(                               XK_eacute,                   1)
-    // TAGKEYS(                               XK_quotedbl,                 2)
-    // TAGKEYS(                               XK_apostrophe,               3)
-    // TAGKEYS(                               XK_parenleft,                4)
-    // TAGKEYS(                               XK_section,                  5)
-    // TAGKEYS(                               XK_egrave,                   6)
-    // TAGKEYS(                               XK_exclam,                   7)
-    // TAGKEYS(                               XK_ccedilla,                 8)
 
 };
 
