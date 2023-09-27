@@ -32,8 +32,10 @@ brightness() {
 }
 
 mem() {
+     usage="$(cat /proc/meminfo |sed -n 7p|awk '{printf("%.2f", $2/1000000)}')"
+     total="$(cat /proc/meminfo |sed -n 1p|awk '{printf("%.2f", $2/1000000)}')"
   printf "^c$blue^^b$black^  "
-  printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)"
+  printf "^c$blue^ $usage/$total"
 }
 
 wlan() {
