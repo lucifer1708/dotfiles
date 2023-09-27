@@ -11,51 +11,44 @@ interval=0
 
 cpu() {
   cpu_val=$(~/.local/bin/cpu-go)
-  printf "^c$black^ ^b$green^ CPU "
-  printf "^c$white^ ^b$grey^ $cpu_val "
+  printf "$cpu_val"
 }
 
 temp() {
   temp_value=$(sensors | awk '/^edge/ {print $2 }' | tr -d +)
-  printf "^c$black^ ^b$green^ TEMP"
-  printf "^c$white^ ^b$grey^ $temp_value"
+  printf "$temp_value"
 }
 
 battery() {
   get_capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
-  printf "^c$blue^   $get_capacity"
+  printf "$get_capacity"
 }
 
 brightness() {
-  printf "^c$red^   "
-  printf "^c$red^%.0f\n" $(brightnessctl -m | cut -d, -f4 | tr -d %)
+  printf "$(brightnessctl -m | cut -d, -f4 | tr -d %)"
 }
 
 mem() {
      usage="$(cat /proc/meminfo |sed -n 7p|awk '{printf("%.2f", $2/1000000)}')"
      total="$(cat /proc/meminfo |sed -n 1p|awk '{printf("%.2f", $2/1000000)}')"
-  printf "^c$blue^^b$black^  "
-  printf "^c$blue^ $usage/$total"
+     printf "$usage/$total"
 }
 
+
 wlan() {
-# run "conky -c $HOME/.config/chadwm/conky/system-overview"
 	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c$black^ ^b$blue^ 󰤨  ^d^%s" " ^c$blue^Connected" ;;
-	down) printf "^c$black^ ^b$blue^ 󰤭  ^d^%s" " ^c$blue^Disconnected" ;;
+	up) printf "Connected" ;;
+	down) printf "Disconnected" ;;
 	esac
 }
 
 clock() {
-	printf "^c$black^ ^b$darkblue^  "
-	printf "^c$black^^b$blue^ $(date '+%d/%m/%y %r')  "
+	time="$(date "+[  %a %d %b ] [  %I:%M %P ]")" 
+     printf "$time"
 }
-
-
 while true; do
-
   [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
   interval=$((interval + 1))
-
-  sleep 2 && xsetroot -name " $(battery) $(brightness) $(cpu) $(temp) $(mem) $(wlan) $(clock)"
+  sleep 2 && xsetroot -name "[ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [  $(mem)] $(clock)"
 done
+
