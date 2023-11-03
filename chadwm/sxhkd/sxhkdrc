@@ -67,6 +67,9 @@ super + F8
 super + shift + KP_Enter
 	thunar
 
+super + s
+     slack
+
 #dmenu
 super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#ffffff' -sb '#bd93f9' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'

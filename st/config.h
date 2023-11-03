@@ -7,7 +7,9 @@
  */
 static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
 static char *font2[] = {
-    "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
+    "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true",
+    "Material Design Icons Desktop:size=10",
+    "CaskaydiaCove Nerd Font Mono:size=10"};
 static int borderpx = 2;
 
 /*

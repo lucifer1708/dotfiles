@@ -27,10 +27,10 @@ static const int showsystray = 1; /* 0 means no systray */
 static const int showbar = 1;     /* 0 means no bar */
 static const int showtab = showtab_auto;
 static const int toptab = 1; /* 0 means bottom tab */
-static const int topbar = 0; /* 0 means bottom bar */
+static const int topbar = 1; /* 0 means bottom bar */
 static const int horizpadbar = 1;
 static const int vertpadbar = 4;
-static const int vertpadtab = 20;
+static const int vertpadtab = 15;
 static const int horizpadtabi = 10;
 static const int horizpadtabo = 15;
 static const int scalepreview = 4;
@@ -38,12 +38,12 @@ static const int tag_preview = 1; /* 1 means enable, 0 is off */
 static const int colorfultag =
     1; /* 0 means use SchemeSel for selected non vacant tag */
 
-#define ICONSIZE 8    /* icon size */
+#define ICONSIZE 15 /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
 
 static const char *fonts[] = {"Iosevka:style:medium:size=10",
                               "JetBrainsMono Nerd Font:style:medium:size=11",
-                              "Material Design Icons Desktop:size=8"};
+                              "Material Design Icons Desktop:size=10"};
 
 // theme
 /* #include "themes/onedark.h" */
@@ -111,7 +111,7 @@ static const Rule rules[] = {
 static const float mfact = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;    /* number of clients in master area */
 static const int resizehints =
-    1; /* 1 means respect size hints in tiled resizals */
+    0; /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen =
     1; /* 1 will force focus on the fullscreen window */
 
