@@ -1,14 +1,5 @@
-
 #!/bin/dash
-
-# ^c$var^ = fg color
-# ^b$var^ = bg color
-
 interval=0
-
-# load colors
-. ~/.config/chadwm/scripts/bar_themes/dracula
-
 
 cpu() {
   cpu_val=$(~/.local/bin/cpu-go)
@@ -34,6 +25,7 @@ mem() {
      total="$(cat /proc/meminfo |sed -n 1p|awk '{printf("%.2f", $2/1000000)}')"
      printf "$usage/$total GB"
 }
+
 
 wlan() {
 	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
