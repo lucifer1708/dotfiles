@@ -35,8 +35,7 @@ static const int horizpadtabi = 10;
 static const int horizpadtabo = 15;
 static const int scalepreview = 4;
 static const int tag_preview = 1; /* 1 means enable, 0 is off */
-static const int colorfultag =
-    1; /* 0 means use SchemeSel for selected non vacant tag */
+static const int colorfultag = 1; /* 0 means use SchemeSel for selected non vacant tag */
 
 #define ICONSIZE 15 /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
@@ -45,11 +44,6 @@ static const char *fonts[] = {"Iosevka:style:medium:size=10",
                               "JetBrainsMono Nerd Font:style:medium:size=11",
                               "Material Design Icons Desktop:size=10"};
 
-// theme
-/* #include "themes/onedark.h" */
-/* #include "themes/catppuccin.h" */
-// #include "themes/nord.h"
-// #include "themes/gruvchad.h"
 #include "themes/dracula.h"
 
 static const char *colors[][3] = {

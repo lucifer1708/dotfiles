@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <file-to-monitor> <command-to-execute>"
+    exit 1
+fi
+
+FILE=$1
+COMMAND=$2
+
+# Monitor the file for changes and execute the command
+inotifywait -m -e close_write --format "%w%f" "$FILE" | while read MODIFIED_FILE
+do
+  echo "File $MODIFIED_FILE has been modified."
+  $COMMAND $MODIFIED_FILE
+done

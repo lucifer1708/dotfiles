@@ -21,11 +21,16 @@ brightness() {
 }
 
 mem() {
-     usage="$(cat /proc/meminfo |sed -n 7p|awk '{printf("%.2f", $2/1000000)}')"
-     total="$(cat /proc/meminfo |sed -n 1p|awk '{printf("%.2f", $2/1000000)}')"
-     printf "$usage/$total GB"
+     usage=$(free --si | awk '/^Mem/ {printf("%0.2f",$3/1048576)}')
+     total=$(free --si | awk '/^Mem/ {printf("%0.2f",$2/1048576)}')
+     printf "$usage/$total Gib"
 }
 
+swap() {
+     usage=$(free --si | awk '/^Swap/ {printf("%0.2f",$3/1048576)}')
+     total=$(free --si | awk '/^Swap/ {printf("%0.2f",$2/1048576)}')
+     printf "$usage/$total Gib"
+}
 
 wlan() {
 	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
@@ -41,5 +46,5 @@ clock() {
 while true; do
   [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
   interval=$((interval + 1))
-  sleep 2 && xsetroot -name "[ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [  $(mem)] $(clock)"
+  sleep 2 && xsetroot -name "[ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [ SWAP $(swap)] [  $(mem)] $(clock)"
 done

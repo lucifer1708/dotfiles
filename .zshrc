@@ -16,15 +16,17 @@
 # # # # # # # # # # # # # # # # # # # # 
 
 
+
 #------------------------ ZSH shell configurations -------------------------------------
-export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:/opt/flutter/bin/
+export PATH="/opt/flutter/bin:$PATH"
+export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/
 export GOPATH=$HOME/go
 autoload -U compinit; compinit
 export ANDROID_HOME=/opt/android-sdk
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.zsh 
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 source /usr/share/doc/mcfly/mcfly.zsh 
  
 eval "$(starship init zsh)"
@@ -65,7 +67,7 @@ alias compile-tex="latexmk -pvc -pdf"
 alias emacs="emacsclient -c -a 'emacs' & disown"
 alias ssh-stage="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-18-192-176-85.eu-central-1.compute.amazonaws.com"
 alias ssh-dev="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-3-28-195-4.me-central-1.compute.amazonaws.com"
-alias ssh-prod="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-18-159-254-137.eu-central-1.compute.amazonaws.com"
+alias ssh-prod="ssh -i ~/Downloads/athena_eumlet.pem ubuntu@ec2-3-28-47-73.me-central-1.compute.amazonaws.com"
 
 #------------------ GIT ALIASES -------------
 alias g='git'
