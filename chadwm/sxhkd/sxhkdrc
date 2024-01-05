@@ -31,11 +31,11 @@ super + alt + n
     $HOME/.config/dotfiles/rofi/confs/bin/network
 
 super + w
-     prime-run brave
+     firefox
 
 # telegram-desktop
 super + shift + t
-    prime-run telegram-desktop
+    telegram-desktop
 
 #archlinux-logout
 super + x
@@ -43,7 +43,7 @@ super + x
 
 #st
 super + shift + Return
-    prime-run st
+    st
 
 #Xkill
 super + Escape

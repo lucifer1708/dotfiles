@@ -8,7 +8,6 @@ fi
 FILE=$1
 COMMAND=$2
 
-# Monitor the file for changes and execute the command
 inotifywait -m -e close_write --format "%w%f" "$FILE" | while read MODIFIED_FILE
 do
   echo "File $MODIFIED_FILE has been modified."

@@ -2,7 +2,6 @@
 # ~/.zshrc  #
 # # # # # # #
 
-
 # # # # # # # # # # # # # # # # # # # #
 #     __               _              #
 #    / /   __  _______(_) ______ ____ #
@@ -14,8 +13,6 @@
 #       Author: Sumit Dhiman          #
 #     Email: hello@sumitdhiman.in     #
 # # # # # # # # # # # # # # # # # # # # 
-
-
 
 #------------------------ ZSH shell configurations -------------------------------------
 export PATH="/opt/flutter/bin:$PATH"
@@ -50,7 +47,9 @@ _fzf_compgen_dir() {
 
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
-alias ls='ls --color=auto'
+alias ls='eza'
+alias ll='eza -l'
+alias lla='eza -la'
 alias docx="cd ~/Docx"
 alias dols="cd ~/Downloads/"
 alias vi='nvim'
@@ -93,10 +92,7 @@ alias create-env='python -m venv venv'
 alias lfa='ls -ap | grep -v /'
 alias ld='ls -p | grep /'
 alias lda='ls -Ap | grep /'
-alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -la'
-alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
 #----------------------------------- fix obvious typo's -----------------------------------
