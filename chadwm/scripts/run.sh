@@ -20,6 +20,6 @@ run "numlockx on"
 run clipmenud
 run volumeicon
 sxhkd -c ~/.config/chadwm/sxhkd/sxhkdrc &
-feh --bg-fill /home/lucifer/Pictures/walls/images/night_moon.webp
+feh --bg-fill /home/lucifer/Pictures/walls/images/ww11.webp
 ~/.config/chadwm/scripts/bar.sh &
 while type chadwm >/dev/null; do chadwm && continue || break; done

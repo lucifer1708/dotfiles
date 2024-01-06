@@ -40,9 +40,7 @@ static const int colorfultag = 1; /* 0 means use SchemeSel for selected non vaca
 #define ICONSIZE 15 /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
 
-static const char *fonts[] = {"Iosevka:style:medium:size=10",
-                              "JetBrainsMono Nerd Font:style:medium:size=11",
-                              "Material Design Icons Desktop:size=10"};
+static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",};
 
 #include "themes/dracula.h"
 
