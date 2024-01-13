@@ -42,7 +42,7 @@ static const int colorfultag = 1; /* 0 means use SchemeSel for selected non vaca
 
 static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",};
 
-#include "themes/dracula.h"
+#include "themes/catppuccin.h"
 
 static const char *colors[][3] = {
     /*                     fg       bg      border */

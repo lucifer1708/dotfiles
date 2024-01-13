@@ -8,7 +8,7 @@
 
 #Thunar
 super + e
-    prime-run thunar
+    thunar
 
 #Rofi
 super + r
@@ -52,7 +52,7 @@ super + Escape
 #Keyboard dependent
 #st
 super + KP_Enter
-	prime-run st
+	st
 
 #################################################################
 # SUPER + SHIFT KEYS

@@ -27,7 +27,7 @@ fi
 
 
 if [ -x "$(command -v feh)" ]; then
-feh --bg-fill /home/lucifer/Pictures/walls/images/ww11.webp
+feh --bg-fill /home/lucifer/Pictures/walls/images/wallhaven-kx7jz1.webp
 fi
 
 

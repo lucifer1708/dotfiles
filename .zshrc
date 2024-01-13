@@ -12,7 +12,7 @@
 # # # # # # # # # # # # # # # # # # # #
 #       Author: Sumit Dhiman          #
 #     Email: hello@sumitdhiman.in     #
-# # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # #
 
 #------------------------ ZSH shell configurations -------------------------------------
 export PATH="/opt/flutter/bin:$PATH"
@@ -25,7 +25,9 @@ bindkey "^[[1;5D" backward-word
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 source /usr/share/doc/mcfly/mcfly.zsh 
- 
+
+source "$HOME/.cargo/env"
+
 eval "$(starship init zsh)"
 
 HISTFILE="$HOME/.zsh_history"
@@ -54,6 +56,7 @@ alias docx="cd ~/Docx"
 alias dols="cd ~/Downloads/"
 alias vi='nvim'
 alias vim='nvim'
+alias nvi='nvim'
 alias clr='clear'
 alias bye='exit'
 alias fm='ranger'
@@ -77,7 +80,7 @@ alias gclone='git clone'
 alias gc='git checkout'
 alias gpush='git push origin'
 alias ggpush='git push -u origin'
- 
+
 #--------------------- Python Stuff Going Here ----------------------------
 alias pyrun="python manage.py runserver" # For Django
 alias pyrun-remote="python manage.py runserver 192.168.65.34:8000" # For Django
@@ -218,7 +221,6 @@ alias rg="rg --sort path"
 # get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-# nano for important configuration files
 # know what you do in these files
 alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias npacman="sudo $EDITOR /etc/pacman.conf"
