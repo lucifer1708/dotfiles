@@ -72,7 +72,7 @@ super + s
 
 #dmenu
 super + shift + d
-	dmenu_run -i -nb '#191919' -nf '#ffffff' -sb '#bd93f9' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+	dmenu_run -i -nb '#191919' -nf '#ffffff' -sb '#bd93f9' -sf '#191919' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=14' -p "Launch:"
 
 #reload sxhkd:
 super + shift + ctrl + s

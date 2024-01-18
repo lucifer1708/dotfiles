@@ -1,7 +1,7 @@
 #!/bin/sh
 id=$(xinput | grep Touch| cut -d " " -f 17 | cut -d "[" -f 1|cut -d "=" -f 2)
 bool_id=$(xinput list-props 13 | grep "Device Enabled" | awk '{print $4}')
-if [[ $bool_id == 1 ]]; then
+if [ $bool_id -eq 1 ]; then
      xinput disable $id
 else
      xinput enable $id
