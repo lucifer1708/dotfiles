@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=DWM
+Comment=Window Manager
+Exec=/home/lucifer/.config/chadwm/scripts/run.sh
+Type=Application
