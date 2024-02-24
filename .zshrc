@@ -18,7 +18,8 @@
 export PATH="/opt/flutter/bin:$PATH"
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
-export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/:$CUDA_HOME/bin
+export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/:$CUDA_HOME/bin:/home/lucifer/.local/share/solana/install/active_release/bin:/home/lucifer/.avm/bin
+
 export GOPATH=$HOME/go
 autoload -U compinit; compinit
 export ANDROID_HOME=/opt/android-sdk
@@ -26,7 +27,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source /usr/share/zsh-fzf-tab-git/fzf-tab.zsh
-#source /usr/share/doc/mcfly/mcfly.zsh 
+eval "$(mcfly init zsh)"
 
 source "$HOME/.cargo/env"
 
@@ -53,6 +54,7 @@ _fzf_compgen_dir() {
 EDITOR='nvim' # Variable for $EDITOR
 alias cufix='sudo modprobe nvidia-current-uvm'
 alias ls='eza'
+alias gallery="eog . & disown"
 alias cat='batcat'
 alias ll='eza -l'
 alias lla='eza -la'

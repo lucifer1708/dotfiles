@@ -1,7 +1,7 @@
 #!/bin/sh
 
 value=`ls -t -- $HOME/Pictures/walls/images/*| nsxiv -rto -`
-if [[ value ]]; then
+if [ value ]; then
     feh --bg-fill $value 
      sed -i "/^feh/ c\feh --bg-fill $value" $HOME/.config/dotfiles/chadwm/scripts/run.sh
 else

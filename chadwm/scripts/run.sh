@@ -1,7 +1,7 @@
 #!/bin/dash
 
 xrdb merge ~/.Xresources &
-/home/lucifer/.screenlayout/screen.sh
+/home/lucifer/.screenlayout/scree.sh
 nm-applet &
 blueman-applet &
 xfce4-power-manager &
@@ -12,6 +12,6 @@ numlockx on &
 clipmenud &
 volumeicon &
 sxhkd -c ~/.config/chadwm/sxhkd/sxhkdrc &
-feh --bg-fill /home/lucifer/Pictures/walls/images/evening_girl.webp
+feh --bg-fill /home/lucifer/Pictures/walls/images/wallhaven-weq9wx_1920x1080.webp
 ~/.config/chadwm/scripts/bar.sh &
 while type chadwm >/dev/null; do chadwm && continue || break; done

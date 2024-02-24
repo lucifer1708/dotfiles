@@ -109,7 +109,7 @@ XF86AudioLowerVolume
     amixer -D pipewire set Master 5%-
 
 XF86TouchpadToggle
-    $HOME/.config/dotfiles/bin/toggle-touchpad
+    $HOME/.local/bin/toggle-touchpad
 
 XF86ScreenSaver
     slock
