@@ -37,10 +37,10 @@ static const int scalepreview = 4;
 static const int tag_preview = 1; /* 1 means enable, 0 is off */
 static const int colorfultag = 1; /* 0 means use SchemeSel for selected non vacant tag */
 
-#define ICONSIZE 15 /* icon size */
-#define ICONSPACING 5 /* space between icon and title */
+#define ICONSIZE 12 /* icon size */
+#define ICONSPACING 4 /* space between icon and title */
 
-static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",};
+static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=10",};
 
 #include "themes/catppuccin.h"
 

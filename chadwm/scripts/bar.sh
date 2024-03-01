@@ -6,6 +6,11 @@ cpu() {
   printf "$cpu_val"
 }
 
+bluetooth(){
+     val=$(bluetoothctl devices | cut -f2 -d' ' | while read uuid; do bluetoothctl info $uuid; done|grep -e "|Connected\|Name"|cut -f2 -d":")
+     printf "$val"
+}
+
 temp() {
   temp_value=$(sensors | awk '/^edge/ {print $2 }' | tr -d +)
   printf "$temp_value"
@@ -46,5 +51,5 @@ clock() {
 while true; do
   [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
   interval=$((interval + 1))
-  sleep 2 && xsetroot -name "[ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [ SWAP $(swap)] [  $(mem)] $(clock)"
+  sleep 2 && xsetroot -name " [$(bluetooth)] [ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [ SWAP $(swap)] [  $(mem)] $(clock)"
 done

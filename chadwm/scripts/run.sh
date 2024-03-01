@@ -3,7 +3,6 @@
 xrdb merge ~/.Xresources &
 /home/lucifer/.screenlayout/scree.sh
 nm-applet &
-blueman-applet &
 xfce4-power-manager &
 /usr/lib/xfce4/notifyd/xfce4-notifyd & 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

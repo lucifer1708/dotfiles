@@ -20,13 +20,15 @@ export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
 export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/:$CUDA_HOME/bin:/home/lucifer/.local/share/solana/install/active_release/bin:/home/lucifer/.avm/bin
 
+alias dslr-webcam="gphoto2 --stdout --set-config liveviewsize=0 --capture-movie | ffmpeg  -i - -vcodec rawvideo -pix_fmt yuv420p -vf lut3d='$HOME/.config/dotfiles/luts/color.cube' -threads 0 -f v4l2 -s:v 1920x1080 -r 60 /dev/video2"
+
 export GOPATH=$HOME/go
 autoload -U compinit; compinit
 export ANDROID_HOME=/opt/android-sdk
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source /usr/share/zsh-fzf-tab-git/fzf-tab.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 eval "$(mcfly init zsh)"
 
 source "$HOME/.cargo/env"
@@ -55,7 +57,7 @@ EDITOR='nvim' # Variable for $EDITOR
 alias cufix='sudo modprobe nvidia-current-uvm'
 alias ls='eza'
 alias gallery="eog . & disown"
-alias cat='batcat'
+alias cat='bat'
 alias ll='eza -l'
 alias lla='eza -la'
 alias docx="cd ~/Docx"
