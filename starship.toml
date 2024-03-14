@@ -1,4 +1,5 @@
 palette = "catppuccin_mocha"
+command_timeout = 10000
 [battery]
 full_symbol = " 🔋"
 charging_symbol = " 🔌"
