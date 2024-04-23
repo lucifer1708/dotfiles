@@ -51,5 +51,5 @@ clock() {
 while true; do
   [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
   interval=$((interval + 1))
-  sleep 2 && xsetroot -name " [$(bluetooth)] [ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [ SWAP $(swap)] [  $(mem)] $(clock)"
+  sleep 2 && xsetroot -name "[ 󰔐 $(temp)] [ 󰂄 $(battery)%] [ 󰻠 $(cpu)%] [ SWAP $(swap)] [  $(mem)] $(clock)"
 done
