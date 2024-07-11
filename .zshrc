@@ -10,28 +10,29 @@
 # /_____/|__,_/|___/_/_/  |___/_/     #
 #                                     #
 # # # # # # # # # # # # # # # # # # # #
-#       Author: Sumit Dhiman          #
+#         Author: Sumit Dhiman        #
 #     Email: hello@sumitdhiman.in     #
 # # # # # # # # # # # # # # # # # # # #
 
 #------------------------ ZSH shell configurations -------------------------------------
-
+alias ssh='TERM=xterm-256color ssh'
 export PATH="/opt/flutter/bin:$PATH"
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
-export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/:$CUDA_HOME/bin:/home/lucifer/.local/share/solana/install/active_release/bin:/home/lucifer/.avm/bin
+export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.config/emacs/bin:/opt/mssql/bin:/opt/android-sdk/tools/bin:/opt/android-sdk//platform-tools/:/opt/android-sdk/cmdline-tools/bin/:/opt/android-sdk/emulator/:/opt/dart-sdk/bin/:$HOME/.emacs.d/bin/:$HOME/.cargo/bin/:$CUDA_HOME/bin:/home/lucifer/.local/share/solana/install/active_release/bin:/home/lucifer/.avm/bin:/opt/dbeaver/
 
 alias dslr-webcam="gphoto2 --stdout --set-config liveviewsize=0 --capture-movie | ffmpeg  -i - -vcodec rawvideo -pix_fmt yuv420p -vf lut3d='$HOME/.config/dotfiles/luts/7.cube' -threads 0 -f v4l2 -s:v 1920x1080 -r 60 /dev/video2"
 
 export GOPATH=$HOME/go
-autoload -U compinit; compinit
+autoload -U compinit
+compinit
 export ANDROID_HOME=/opt/android-sdk
 bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+bindkey "^[[1;5D" backward-word
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 
-eval "$(mcfly init zsh)"
+# eval "$(mcfly init zsh)"
 
 source "$HOME/.cargo/env"
 
@@ -41,39 +42,43 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=500000
 SAVEHIST=500000
 setopt appendhistory
-setopt INC_APPEND_HISTORY  
+setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 #------------------------ END -----------------------------------------------
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+     fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
 alias cufix='sudo modprobe nvidia-current-uvm'
+alias logout="hyprctl dispatch exit"
 alias ls='eza'
 alias gallery="eog . & disown"
-# alias cat='batcat'
+alias cat='bat'
 alias ll='eza -l'
 alias lla='eza -la'
 alias docx="cd ~/Docx"
 alias dols="cd ~/Downloads/"
 alias vi='nvim'
-alias vim='nvim'
+# alias vim='nvim'
 alias nvi='nvim'
+alias vim='nvim'
+alias nvimm='nvim'
 alias clr='clear'
 alias bye='exit'
 alias fm='ranger'
-alias copy='xclip -selection clipboard'
+# alias copy='xclip -selection clipboard'
+alias copy='wl-copy'
 alias vim-config='cd ~/.config/nvim/'
 alias chwal='feh --bg-fill --randomize ~/Pictures/walls/images/'
-alias gclone1='git clone --depth=1' 
+alias gclone1='git clone --depth=1'
 alias run-server='npm run dev -- --open'
 alias compile-tex="latexmk -pvc -pdf"
 alias emacs="emacsclient -c -a 'emacs' & disown"
@@ -92,12 +97,12 @@ alias gpush='git push origin'
 alias ggpush='git push -u origin'
 
 #--------------------- Python Stuff Going Here ----------------------------
-alias pyrun="python manage.py runserver" # For Django
+alias pyrun="python manage.py runserver"                           # For Django
 alias pyrun-remote="python manage.py runserver 192.168.65.34:8000" # For Django
-alias migrate="python manage.py migrate" # For Django
-alias makemigrations="python manage.py makemigrations" # For Django
-alias createsuperuser="python manage.py createsuperuser" # For Django
-alias collectstatic="python manage.py collectstatic" # For Django
+alias migrate="python manage.py migrate"                           # For Django
+alias makemigrations="python manage.py makemigrations"             # For Django
+alias createsuperuser="python manage.py createsuperuser"           # For Django
+alias collectstatic="python manage.py collectstatic"               # For Django
 alias activate-env='source venv/bin/activate'
 alias create-env='python -m venv venv'
 
@@ -123,7 +128,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#-------------------- readable output for looking on the disk usage of storage ------------------------------- 
+#-------------------- readable output for looking on the disk usage of storage -------------------------------
 alias df='df -h'
 
 #------------------- pacman unlock ---------------------
@@ -160,7 +165,7 @@ alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 # grub update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-# add new fonts 
+# add new fonts
 alias update-fc='sudo fc-cache -fv'
 
 # copy/paste all content of /etc/skel over to home folder - backup of config created - beware
@@ -207,7 +212,6 @@ alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pac
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
-
 
 #--------------------- youtube download -------------------------------
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
@@ -279,269 +283,86 @@ alias xd="ls /usr/share/xsessions"
 
 # ex = EXtractor for all kinds of archives
 # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   tar xf $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+ex() {
+     if [ -f $1 ]; then
+          case $1 in
+          *.tar.bz2) tar xjf $1 ;;
+          *.tar.gz) tar xzf $1 ;;
+          *.bz2) bunzip2 $1 ;;
+          *.rar) unrar x $1 ;;
+          *.gz) gunzip $1 ;;
+          *.tar) tar xf $1 ;;
+          *.tbz2) tar xjf $1 ;;
+          *.tgz) tar xzf $1 ;;
+          *.zip) unzip $1 ;;
+          *.Z) uncompress $1 ;;
+          *.7z) 7z x $1 ;;
+          *.deb) ar x $1 ;;
+          *.tar.xz) tar xf $1 ;;
+          *.tar.zst) tar xf $1 ;;
+          *) echo "'$1' cannot be extracted via ex()" ;;
+          esac
+     else
+          echo "'$1' is not a valid file"
+     fi
 }
 
-function cdf(){
-cd "$(find $HOME -type d|fzf)"
+function cdf() {
+     cd "$(find $HOME -type d | fzf)"
 }
 
-open ()
-{
-if [ -f $1 ]; then
-  case $1 in 
-    *.pdf)  zathura $1 & disown;;
-    *.mp3) mpv $1 & disown;;
-    *.mp4) mpv $1 & disown;;
-    *.png) sxiv $1 & disown;;
-    *.jpg) sxiv $1 & disown;;
-    *.jpeg) sxiv $1 & disown;;
-    *.webp) sxiv $1 & disown;;
-    *) echo "'$1' cannot be openned";;
-  esac
-else
-  echo "'$1' is not valid file"
-fi
+open() {
+     if [ -f $1 ]; then
+          case $1 in
+          *.pdf)
+               zathura $1 &
+               disown
+               ;;
+          *.mp3)
+               mpv $1 &
+               disown
+               ;;
+          *.mp4)
+               mpv $1 &
+               disown
+               ;;
+          *.png)
+               sxiv $1 &
+               disown
+               ;;
+          *.jpg)
+               sxiv $1 &
+               disown
+               ;;
+          *.jpeg)
+               sxiv $1 &
+               disown
+               ;;
+          *.webp)
+               sxiv $1 &
+               disown
+               ;;
+          *) echo "'$1' cannot be openned" ;;
+          esac
+     else
+          echo "'$1' is not valid file"
+     fi
 }
 
 function run {
- if ! pgrep $1 ;
-  then
-    $@& disown
-  fi
+     if ! pgrep $1; then
+          $@ &
+          disown
+     fi
 }
 #remove
 alias rmgitcache="rm -r ~/.cache/git"
 
-
 # USELESS ALIASES
-alias fetch='neofetch'
+alias fetch='fastfetch'
 export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH="$PATH:/opt/mssql-tools/bin"
 
-__gh_debug()
-{
-    local file="$BASH_COMP_DEBUG_FILE"
-    if [[ -n ${file} ]]; then
-        echo "$*" >> "${file}"
-    fi
-}
-
-_gh()
-{
-    local shellCompDirectiveError=1
-    local shellCompDirectiveNoSpace=2
-    local shellCompDirectiveNoFileComp=4
-    local shellCompDirectiveFilterFileExt=8
-    local shellCompDirectiveFilterDirs=16
-
-    local lastParam lastChar flagPrefix requestComp out directive comp lastComp noSpace
-    local -a completions
-
-    __gh_debug "\n========= starting completion logic =========="
-    __gh_debug "CURRENT: ${CURRENT}, words[*]: ${words[*]}"
-
-    # The user could have moved the cursor backwards on the command-line.
-    # We need to trigger completion from the $CURRENT location, so we need
-    # to truncate the command-line ($words) up to the $CURRENT location.
-    # (We cannot use $CURSOR as its value does not work when a command is an alias.)
-    words=("${=words[1,CURRENT]}")
-    __gh_debug "Truncated words[*]: ${words[*]},"
-
-    lastParam=${words[-1]}
-    lastChar=${lastParam[-1]}
-    __gh_debug "lastParam: ${lastParam}, lastChar: ${lastChar}"
-
-    # For zsh, when completing a flag with an = (e.g., gh -n=<TAB>)
-    # completions must be prefixed with the flag
-    setopt local_options BASH_REMATCH
-    if [[ "${lastParam}" =~ '-.*=' ]]; then
-        # We are dealing with a flag with an =
-        flagPrefix="-P ${BASH_REMATCH}"
-    fi
-
-    # Prepare the command to obtain completions
-    requestComp="${words[1]} __complete ${words[2,-1]}"
-    if [ "${lastChar}" = "" ]; then
-        # If the last parameter is complete (there is a space following it)
-        # We add an extra empty parameter so we can indicate this to the go completion code.
-        __gh_debug "Adding extra empty parameter"
-        requestComp="${requestComp} \"\""
-    fi
-
-    __gh_debug "About to call: eval ${requestComp}"
-
-    # Use eval to handle any environment variables and such
-    out=$(eval ${requestComp} 2>/dev/null)
-    __gh_debug "completion output: ${out}"
-
-    # Extract the directive integer following a : from the last line
-    local lastLine
-    while IFS='\n' read -r line; do
-        lastLine=${line}
-    done < <(printf "%s\n" "${out[@]}")
-    __gh_debug "last line: ${lastLine}"
-
-    if [ "${lastLine[1]}" = : ]; then
-        directive=${lastLine[2,-1]}
-        # Remove the directive including the : and the newline
-        local suffix
-        (( suffix=${#lastLine}+2))
-        out=${out[1,-$suffix]}
-    else
-        # There is no directive specified.  Leave $out as is.
-        __gh_debug "No directive found.  Setting do default"
-        directive=0
-    fi
-
-    __gh_debug "directive: ${directive}"
-    __gh_debug "completions: ${out}"
-    __gh_debug "flagPrefix: ${flagPrefix}"
-
-    if [ $((directive & shellCompDirectiveError)) -ne 0 ]; then
-        __gh_debug "Completion received error. Ignoring completions."
-        return
-    fi
-
-    local activeHelpMarker="_activeHelp_ "
-    local endIndex=${#activeHelpMarker}
-    local startIndex=$((${#activeHelpMarker}+1))
-    local hasActiveHelp=0
-    while IFS='\n' read -r comp; do
-        # Check if this is an activeHelp statement (i.e., prefixed with $activeHelpMarker)
-        if [ "${comp[1,$endIndex]}" = "$activeHelpMarker" ];then
-            __gh_debug "ActiveHelp found: $comp"
-            comp="${comp[$startIndex,-1]}"
-            if [ -n "$comp" ]; then
-                compadd -x "${comp}"
-                __gh_debug "ActiveHelp will need delimiter"
-                hasActiveHelp=1
-            fi
-
-            continue
-        fi
-
-        if [ -n "$comp" ]; then
-            # If requested, completions are returned with a description.
-            # The description is preceded by a TAB character.
-            # For zsh's _describe, we need to use a : instead of a TAB.
-            # We first need to escape any : as part of the completion itself.
-            comp=${comp//:/\\:}
-
-            local tab="$(printf '\t')"
-            comp=${comp//$tab/:}
-
-            __gh_debug "Adding completion: ${comp}"
-            completions+=${comp}
-            lastComp=$comp
-        fi
-    done < <(printf "%s\n" "${out[@]}")
-
-    # Add a delimiter after the activeHelp statements, but only if:
-    # - there are completions following the activeHelp statements, or
-    # - file completion will be performed (so there will be choices after the activeHelp)
-    if [ $hasActiveHelp -eq 1 ]; then
-        if [ ${#completions} -ne 0 ] || [ $((directive & shellCompDirectiveNoFileComp)) -eq 0 ]; then
-            __gh_debug "Adding activeHelp delimiter"
-            compadd -x "--"
-            hasActiveHelp=0
-        fi
-    fi
-
-    if [ $((directive & shellCompDirectiveNoSpace)) -ne 0 ]; then
-        __gh_debug "Activating nospace."
-        noSpace="-S ''"
-    fi
-
-    if [ $((directive & shellCompDirectiveFilterFileExt)) -ne 0 ]; then
-        # File extension filtering
-        local filteringCmd
-        filteringCmd='_files'
-        for filter in ${completions[@]}; do
-            if [ ${filter[1]} != '*' ]; then
-                # zsh requires a glob pattern to do file filtering
-                filter="\*.$filter"
-            fi
-            filteringCmd+=" -g $filter"
-        done
-        filteringCmd+=" ${flagPrefix}"
-
-        __gh_debug "File filtering command: $filteringCmd"
-        _arguments '*:filename:'"$filteringCmd"
-    elif [ $((directive & shellCompDirectiveFilterDirs)) -ne 0 ]; then
-        # File completion for directories only
-        local subdir
-        subdir="${completions[1]}"
-        if [ -n "$subdir" ]; then
-            __gh_debug "Listing directories in $subdir"
-            pushd "${subdir}" >/dev/null 2>&1
-        else
-            __gh_debug "Listing directories in ."
-        fi
-
-        local result
-        _arguments '*:dirname:_files -/'" ${flagPrefix}"
-        result=$?
-        if [ -n "$subdir" ]; then
-            popd >/dev/null 2>&1
-        fi
-        return $result
-    else
-        __gh_debug "Calling _describe"
-        if eval _describe "completions" completions $flagPrefix $noSpace; then
-            __gh_debug "_describe found some completions"
-
-            # Return the success of having called _describe
-            return 0
-        else
-            __gh_debug "_describe did not find completions."
-            __gh_debug "Checking if we should do file completion."
-            if [ $((directive & shellCompDirectiveNoFileComp)) -ne 0 ]; then
-                __gh_debug "deactivating file completion"
-
-                # We must return an error code here to let zsh know that there were no
-                # completions found by _describe; this is what will trigger other
-                # matching algorithms to attempt to find completions.
-                # For example zsh can match letters in the middle of words.
-                return 1
-            else
-                # Perform file completion
-                __gh_debug "Activating file completion"
-
-                # We must return the result of this command, so it must be the
-                # last command, or else we must store its result to return it.
-                _arguments '*:filename:_files'" ${flagPrefix}"
-            fi
-        fi
-    fi
-}
-
-# don't run the completion function when being source-ed or eval-ed
-if [ "$funcstack[1]" = "_gh" ]; then
-    _gh
-fi
 export RUST_BACKTRACE=1
 
 # Generated for envman. Do not edit.
@@ -550,3 +371,4 @@ export RUST_BACKTRACE=1
 
 autoload -U is-at-least
 
+# export DRI_PRIME=1

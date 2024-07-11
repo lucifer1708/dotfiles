@@ -11,6 +11,5 @@ numlockx on &
 clipmenud &
 volumeicon &
 sxhkd -c ~/.config/chadwm/sxhkd/sxhkdrc &
-feh --bg-fill /home/lucifer/Pictures/walls/images/wallhaven-3lrqpy.webp
 ~/.config/chadwm/scripts/bar.sh &
 while type chadwm >/dev/null; do chadwm && continue || break; done

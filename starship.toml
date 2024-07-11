@@ -1,5 +1,6 @@
 palette = "catppuccin_mocha"
 command_timeout = 10000
+
 [battery]
 full_symbol = " 🔋"
 charging_symbol = " 🔌"
@@ -33,7 +34,7 @@ style = "bold white"
 ssh_only = false
 format = "[$hostname]($style) "
 trim_at = "-"
-style = "bold dimmed green"
+style = "bold dimmed overlay2"
 disabled =false 
 
 [python]
@@ -46,7 +47,7 @@ style = "bold green"
 
 [username]
 format = " [$user]($style)@"
-style_user = "bold dimmed blue"
+style_user = "bold dimmed sky"
 show_always = true
 
 [palettes.catppuccin_mocha]
