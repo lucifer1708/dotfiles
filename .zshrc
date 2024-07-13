@@ -372,3 +372,4 @@ export RUST_BACKTRACE=1
 autoload -U is-at-least
 
 # export DRI_PRIME=1
+export CLICOLOR=1
